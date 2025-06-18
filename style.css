@@ -1,0 +1,267 @@
+:root {
+    /* Cores Base */
+    --forest-green-dark: #1E4F28; /* Base para botões primários, cabeçalhos */
+    --forest-green-medium: #286C37; /* Background de seções, caixas de número */
+    --forest-green-light: #4CAF50; /* Hover de botões */
+    --gold-accent: #FFD700; /* Destaques sutis, bordas */
+    --white: #FFFFFF;
+    --light-gray: #f0f0f0; /* Background geral do corpo */
+    --medium-gray: #cccccc; /* Border de inputs */
+    --dark-gray: #333333; /* Texto principal */
+    --text-light: #777777; /* Texto secundário */
+    --error-red: #d32f2f;
+    --success-green: #388e3c;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+    margin: 0;
+    box-sizing: border-box;
+    color: var(--dark-gray);
+    overflow-y: auto; /* Permite rolagem no corpo */
+}
+
+.app-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0; /* Espaçamento superior e inferior para o conteúdo */
+}
+
+.container {
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra mais pronunciada */
+    width: 100%;
+    max-width: 900px; /* Aumentado para melhor espaçamento */
+    box-sizing: border-box;
+    border: 1px solid var(--gold-accent); /* Borda sutil de destaque */
+}
+
+h1 {
+    text-align: center;
+    color: var(--forest-green-dark);
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: var(--forest-green-dark);
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    border-bottom: 2px solid var(--forest-green-medium);
+    padding-bottom: 10px;
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card {
+    background-color: var(--light-gray); /* Fundo mais claro para seções */
+    padding: 25px;
+    margin-bottom: 30px; /* Aumentado o espaçamento entre as seções */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--medium-gray);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efeito de hover */
+}
+
+.card:hover {
+    transform: translateY(-3px); /* Leve levantamento no hover */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--dark-gray);
+}
+
+input[type="file"], input[type="text"], button {
+    padding: 12px 18px; /* Aumentado o padding */
+    border-radius: 6px; /* Borda mais arredondada */
+    border: 1px solid var(--medium-gray);
+    font-size: 1.05em;
+    vertical-align: middle;
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura */
+}
+
+input[type="text"] {
+    width: calc(100% - 140px); /* Ajuste para caber o botão */
+    max-width: 350px; /* Aumentado a largura máxima */
+    margin-right: 15px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: var(--forest-green-dark);
+    box-shadow: 0 0 0 3px rgba(30, 79, 40, 0.2); /* Sombra ao focar */
+    outline: none;
+}
+
+button {
+    color: var(--white);
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Botão Primário (Gerar Números) */
+.primary-button {
+    background-color: var(--forest-green-dark);
+    display: block; /* Ocupa a largura total na sua seção */
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(30, 79, 40, 0.3);
+}
+
+.primary-button:hover:not(:disabled) {
+    background-color: var(--forest-green-light);
+    transform: translateY(-2px); /* Efeito de "levantar" */
+    box-shadow: 0 6px 15px rgba(30, 79, 40, 0.4);
+}
+
+/* Botão de Ação (Adicionar) */
+.action-button {
+    background-color: var(--forest-green-medium);
+}
+
+.action-button:hover:not(:disabled) {
+    background-color: var(--forest-green-light);
+}
+
+/* Botão Secundário (Exportar) */
+.secondary-button {
+    background-color: #6c757d; /* Cinza para secundário */
+}
+
+.secondary-button:hover:not(:disabled) {
+    background-color: #5a6268;
+}
+
+button:disabled {
+    background-color: var(--medium-gray);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    flex-grow: 1; /* Permite que o label ocupe espaço */
+    margin-bottom: 0;
+    margin-right: 15px; /* Espaço entre label e input */
+}
+
+.input-group input[type="text"] {
+    flex-grow: 2;
+    margin-right: 0; /* Remove margem extra */
+}
+
+/* Estilos para os conjuntos de números */
+#generatedSets div, #historyDisplay div, #probableNumbersList div {
+    background-color: var(--white); /* Fundo branco para os números */
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    font-family: 'Consolas', 'Monaco', monospace; /* Fonte monoespaçada para números */
+    font-size: 1.2em;
+    color: var(--forest-green-dark); /* Cor do texto dos números */
+    display: flex; /* Para centralizar o texto */
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--forest-green-medium);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#generatedSets div:hover, #historyDisplay div:hover, #probableNumbersList div:hover {
+    background-color: var(--forest-green-light);
+    color: var(--white);
+    transform: translateY(-1px);
+}
+
+
+/* Scrollbar estilizada para o histórico e números prováveis */
+#historyDisplay, #probableNumbersList {
+    max-height: 280px; /* Aumentado a altura para mais visibilidade */
+    overflow-y: auto;
+    border: 1px solid var(--forest-green-medium);
+    padding: 15px;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra interna */
+}
+
+/* Estilização da barra de rolagem */
+#historyDisplay::-webkit-scrollbar, #probableNumbersList::-webkit-scrollbar {
+    width: 8px;
+}
+
+#historyDisplay::-webkit-scrollbar-track, #probableNumbersList::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+#historyDisplay::-webkit-scrollbar-thumb, #probableNumbersList::-webkit-scrollbar-thumb {
+    background: var(--forest-green-dark);
+    border-radius: 10px;
+}
+
+#historyDisplay::-webkit-scrollbar-thumb:hover, #probableNumbersList::-webkit-scrollbar-thumb:hover {
+    background: var(--forest-green-light);
+}
+
+/* Mensagens de feedback */
+.feedback-message {
+    font-size: 0.95em;
+    margin-top: 15px;
+    padding: 8px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 500;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+.feedback-message.error {
+    background-color: rgba(211, 47, 47, 0.1);
+    color: var(--error-red);
+    border: 1px solid var(--error-red);
+}
+
+.feedback-message.success {
+    background-color: rgba(56, 142, 60, 0.1);
+    color: var(--success-green);
+    border: 1px solid var(--success-green);
+}
+
+input.error-border {
+    border-color: var(--error-red) !important;
+    box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.2) !important;
+}
+
+.empty-state {
+    color: var(--text-light);
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+}

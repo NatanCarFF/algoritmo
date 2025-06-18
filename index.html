@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Números da Sorte</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <div class="container">
+            <h1>Gerador de Números</h1>
+
+            <section class="controls-section card">
+                <h2>Gerenciar Histórico</h2>
+                <div class="controls">
+                    <label for="historyFile">Importar Histórico (JSON):</label>
+                    <input type="file" id="historyFile" accept=".json">
+                    <button id="exportHistory" class="secondary-button">Exportar Histórico</button>
+                    <p id="fileMessage" class="feedback-message"></p>
+                </div>
+            </section>
+
+            <section class="input-section card">
+                <h2>Adicionar Conjunto Manualmente</h2>
+                <div class="input-group">
+                    <label for="newSet">Novo Conjunto (6 números separados por vírgula):</label>
+                    <input type="text" id="newSet" placeholder="Ex: 01,05,12,23,45,50">
+                    <button id="addSet" class="action-button">Adicionar</button>
+                </div>
+                <p id="addSetMessage" class="feedback-message"></p>
+            </section>
+
+            <section class="generation-section card">
+                <h2>Gerar Números</h2>
+                <button id="generateNumbers" class="primary-button">Gerar 5 Conjuntos</button>
+                <p id="generateNumbersMessage" class="feedback-message"></p>
+            </section>
+
+            <section class="results-section card">
+                <h2>Resultados da Geração</h2>
+                <div id="generatedSets">
+                    <p class="empty-state">Clique em 'Gerar 5 Conjuntos' para ver os resultados aqui.</p>
+                </div>
+            </section>
+
+            <section class="history-section card">
+                <h2>Histórico Atual</h2>
+                <div id="historyDisplay">
+                    </div>
+                <p class="empty-state" id="noHistoryMessage" style="display: none;">Nenhum histórico disponível.</p>
+            </section>
+
+            <section class="probability-section card">
+                <h2>Números Mais Prováveis (Top 30)</h2>
+                <div id="probableNumbersList">
+                    <p class="empty-state" id="noProbableNumbers" style="display: none;">Adicione conjuntos ao histórico para ver os números mais prováveis.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
